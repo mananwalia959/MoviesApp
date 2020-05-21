@@ -36,6 +36,7 @@ export class MovieComponent implements OnInit {
       this.popularity = res.popularity;
       this.releaseDate = res.release_date;
       this.revenue = res.revenue;
+      
 
     } );
 
