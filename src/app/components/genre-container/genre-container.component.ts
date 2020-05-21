@@ -18,8 +18,7 @@ export class GenreContainerComponent implements OnInit,OnDestroy {
 
   private subscription:Subscription
 
-  constructor(private readonly movieservice:MovieService , 
-    private readonly router:Router) { }
+  constructor(private readonly movieservice:MovieService ) { }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
@@ -27,11 +26,7 @@ export class GenreContainerComponent implements OnInit,OnDestroy {
   
 
   ngOnInit(): void {
-
     this.subscription = this.movieservice.getMoviesInGenre(this.genre.id).subscribe(data => this.movies = data);
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    
-    
   }
 
 }
