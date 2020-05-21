@@ -16,8 +16,8 @@ export class MovieService {
 
   private mapToMovies = (data:any) => {
     let movies = data.results.map( singlemovie => {
-      // console.log(data)
       let movie:Movie =  new Movie();
+      movie.id=singlemovie.id
       movie.title = singlemovie.title;
       movie.poster = 'https://image.tmdb.org/t/p/w500' +singlemovie.poster_path;
       return movie
@@ -42,6 +42,13 @@ export class MovieService {
   public getMoviesInGenre(genreId:number){
     return this.http.get<object>(this.baseUrl + `/genre/${genreId}/movies`, {
       params:this.defaultParams
-    }).pipe(map(this.mapToMovies))
+    }).pipe(map(this.mapToMovies));
+  }
+
+
+  public getMovieDetails(movieId : string|number){
+    return this.http.get<object>(this.baseUrl + `/movie/${movieId}`, {
+      params:this.defaultParams
+    });
   }
 }

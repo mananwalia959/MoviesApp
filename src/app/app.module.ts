@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeScreenComponent } from './components/home-screen/home-screen.component';
-import { GenreContainerComponent } from './components/genre-container/genre-container.component'
+import { GenreContainerComponent } from './components/genre-container/genre-container.component';
+import { MovieComponent } from './components/movie/movie.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeScreenComponent,
-    GenreContainerComponent
+    GenreContainerComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,
